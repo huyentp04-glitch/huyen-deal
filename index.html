@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tạo link Shopee có mã</title>
+</head>
+<body style="text-align:center;font-family:sans-serif">
+
+<h2>Tạo link Shopee có mã giảm giá</h2>
+
+<input id="link" placeholder="Dán link Shopee vào đây" style="width:80%;padding:12px">
+<br><br>
+
+<button onclick="go()" style="padding:12px 20px;background:black;color:white;border:none">
+Tạo link mua có mã
+</button>
+
+<p id="kq"></p>
+
+<script>
+function go(){
+var goc=document.getElementById('link').value;
+var aff="DÁN_LINK_AFF_Ở_ĐÂY";
+var url=aff+"&url="+encodeURIComponent(goc)+"&sub_id1=facebook";
+document.getElementById('kq').innerHTML="<a href='"+url+"' target='_blank'>Bấm vào đây để mua</a>";
+}
+</script>
+
+</body>
+</html>
