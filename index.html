@@ -18,11 +18,26 @@ Tạo link mua có mã
 <p id="kq"></p>
 
 <script>
-function go(){
-var goc=document.getElementById('link').value;
-var aff="https://shopee.vn/product/241368901/44957536339?credential_token=8wEwiDL7Z2PgPowMZCeqcp6emiHZmCDnynujVUxbsH&exp_group=rollout&gads_t_sig=VTJGc2RHVmtYMTlxTFVSVVRrdENkU2JFTVEwRERXdk0raE8zenp3RHFhbEFuZVBaeVc5ZzBBazBJaGNzdThhMVNmSlV1YzB4N2xCZWlUbmdVNHhPMTJpdzBBZGJUbU5TU21WZS8zL0wrbnFXRTFWL2FBb0R0cExNNkpvZ0hFRFVyNjVLWWJ2c0lHMHowQUhkUmRubEIyREpKeTIwSFFnOXlNL3dzdE9oWENIeTZSUUxVV1kyZjVLbkdXVWJFeDU2&mmp_pid=an_17319060253&uls_trackid=55d654ut00ub&utm_campaign=id_U7E4wttUZN&utm_content=----&utm_medium=affiliates&utm_source=an_17319060253&utm_term=eqwha5t4q3pt";
-var url=aff+"&url="+encodeURIComponent(goc)+"&sub_id1=facebook";
-document.getElementById('kq').innerHTML="<a href='"+url+"' target='_blank'>Bấm vào đây để mua</a>";
+var aff="https://shopee.vn/%C3%81o-Ch%E1%BB%91ng-N%E1%BA%AFng-Tr%E1%BA%BB-Em-Obebi-UPF-50-Ch%E1%BB%91ng-Tia-UV-L%C3%A0m-M%C3%A1t-T%E1%BB%A9c-Th%C3%AC-Cho-B%C3%A9-Trai-B%C3%A9-G%C3%A1i-T%E1%BB%AB-8-23kg-AK216-i.241368901.29633316973?extraParams=%7B%22display_model_id%22%3A198421664586%2C%22model_selection_logic%22%3A3%7D";
+
+function createLink(){
+  var input=document.getElementById("link").value.trim();
+  if(!input.includes("shopee.vn")){
+    alert("Vui lòng dán link Shopee hợp lệ");
+    return;
+  }
+
+  var productPath=input.split("shopee.vn")[1];
+
+  // Bước trung gian để Shopee hiểu là truy cập từ ngoài
+  var middle="https://shopee.vn/?redirect="+encodeURIComponent(productPath);
+
+  var finalLink=aff+"&redirect="+encodeURIComponent(middle);
+
+  document.getElementById("result").innerHTML=
+    `<a href="${finalLink}" target="_blank">
+      👉 Bấm vào đây để mua và nhận đủ mã giảm giá
+     </a>`;
 }
 </script>
 
